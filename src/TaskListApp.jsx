@@ -1,11 +1,7 @@
-import { useState } from 'react'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+function TaskListApp() {
   return (
       <h1>task app</h1>
   )
 }
 
-export default App
+export default TaskListApp;

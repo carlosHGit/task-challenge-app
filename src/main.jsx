@@ -1,9 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './TaskListApp'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react';
+import TaskListApp from './TaskListApp';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const config = {
+    initialColorMode: 'system',
+    useSystemColorMode: false,
+  };
+  
+  const theme = extendTheme({ config });
+
+  const rootApp = document.getElementById('root');
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+          <TaskListApp />
+    </ChakraProvider>
   </React.StrictMode>,
-)
+  rootApp
+);
